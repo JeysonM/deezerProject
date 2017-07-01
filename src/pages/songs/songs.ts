@@ -1,24 +1,29 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the Songs page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { DeezerService } from '../../providers/deezer-service';
+
 @IonicPage()
 @Component({
   selector: 'page-songs',
   templateUrl: 'songs.html',
+  providers: [ DeezerService ]
 })
-export class Songs {
+export class SongsPage {
+  public playlist: any;
+  public songs: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public ds: DeezerService) {
+    this.playlist = this.navParams.get('playlist');
+    this.songs = [];
+    console.log(this.playlist);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Songs');
+    this.ds.getPlaylistSongs(this.playlist.id).subscribe( data => {
+      this.songs = data.data;
+      console.log(this.songs);
+    })
   }
 
 }

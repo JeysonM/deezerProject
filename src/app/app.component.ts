@@ -9,6 +9,10 @@ import { MaquinasPage } from '../pages/maquinas/maquinas';
 import { SoundtrackPage } from '../pages/soundtrack/soundtrack';
 import { ContactoPage } from '../pages/contacto/contacto';
 import { AcercaPage } from '../pages/acerca/acerca';
+import { PerfilesPage } from '../pages/perfiles/perfiles';
+
+
+
 
 @Component({
   templateUrl: 'app.html'
@@ -29,6 +33,7 @@ export class MyApp {
       { titulo: 'Personajes', component: PersonajesPage, icon: 'person'},
       { titulo: 'Maquinas',   component: MaquinasPage,   icon: 'bug'},
       { titulo: 'Soundtrack', component: SoundtrackPage, icon: 'headset'},
+      { titulo: 'Perfiles',   component: PerfilesPage,   icon: 'person'},
       { titulo: 'Contacto',   component: ContactoPage,   icon: 'mail'},
       { titulo: 'Acerca de',  component: AcercaPage,     icon: 'information-circle'}
     ];

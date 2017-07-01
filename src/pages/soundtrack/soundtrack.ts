@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { PlaylistsPage } from '../playlists/playlists';
+
 /**
  * Generated class for the Soundtrack page.
  *

@@ -1,16 +1,25 @@
+import { NgModule, ErrorHandler } from '@angular/core';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { HttpModule } from '@angular/http';
+
 import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { MyApp } from './app.component';
+
 import { InicioPage } from '../pages/inicio/inicio';
 import { PersonajesPage } from '../pages/personajes/personajes';
 import { MaquinasPage } from '../pages/maquinas/maquinas';
 import { SoundtrackPage } from '../pages/soundtrack/soundtrack';
 import { ContactoPage } from '../pages/contacto/contacto';
 import { AcercaPage } from '../pages/acerca/acerca';
+import { PerfilesPage } from '../pages/perfiles/perfiles';
+
+import { PlaylistsPage } from '../pages/playlists/playlists';
+import { SongsPage } from '../pages/songs/songs';
+
 
 @NgModule({
   declarations: [
@@ -20,10 +29,15 @@ import { AcercaPage } from '../pages/acerca/acerca';
     MaquinasPage,
     SoundtrackPage,
     ContactoPage,
-    AcercaPage
+    AcercaPage,
+    PerfilesPage,
+
+    PlaylistsPage,
+    SongsPage
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -34,7 +48,11 @@ import { AcercaPage } from '../pages/acerca/acerca';
     MaquinasPage,
     SoundtrackPage,
     ContactoPage,
-    AcercaPage
+    AcercaPage,
+    PerfilesPage,
+    
+    PlaylistsPage,
+    SongsPage
   ],
   providers: [
     StatusBar,

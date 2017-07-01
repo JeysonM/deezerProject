@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { PlaylistsPage } from '../playlists/playlists';
+
+import { DeezerService } from '../../providers/deezer-service';
+ 
 /**
  * Generated class for the Perfiles page.
  *
@@ -11,14 +15,28 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @Component({
   selector: 'page-perfiles',
   templateUrl: 'perfiles.html',
+  providers: [DeezerService]
 })
-export class Perfiles {
+export class PerfilesPage {
+  public users: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public ds: DeezerService) {
+    this.users = [];
+  }
+
+  goToPlaylist(user){
+    this.navCtrl.push(PlaylistsPage, { user: user});
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Perfiles');
+    this.ds.getUsers().subscribe( usersIDs => {
+      usersIDs.map( userID => {
+        this.ds.getUserDetail(userID).subscribe( user => {
+          this.users.push(user);
+          console.log(this.users);
+        });
+      });
+    });
   }
 
 }

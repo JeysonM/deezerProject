@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { Songs } from './songs';
+import { SongsPage } from './songs';
 
 @NgModule({
   declarations: [
-    Songs,
+    SongsPage,
   ],
   imports: [
-    IonicPageModule.forChild(Songs),
+    IonicPageModule.forChild(SongsPage),
   ],
   exports: [
-    Songs
+    SongsPage
   ]
 })
 export class SongsModule {}
